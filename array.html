@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quicksort</title>
+</head>
+<body>
+  <h1>Quicksort</h1>
+
+  <!-- Adicione um campo de entrada de texto para o usuário inserir os números -->
+  <label for="inputNumbers">Insira os números separados por vírgula:</label>
+  <input type="text" id="inputNumbers">
+  <button onclick="ordenar()">Ordenar</button>
+
+  <div id="resultado"></div>
+
+  <script>
+    // Função para realizar a ordenação Quicksort
+    function quicksort(arr) {
+      if (arr.length <= 1) {
+        return arr;
+      }
+
+      const pivot = arr[0];
+      const left = [];
+      const right = [];
+
+      for (let i = 1; i < arr.length; i++) {
+        if (arr[i] < pivot) {
+          left.push(arr[i]);
+        } else {
+          right.push(arr[i]);
+        }
+      }
+
+      return [...quicksort(left), pivot, ...quicksort(right)];
+    }
+
+    // Função para ordenar os números inseridos pelo usuário
+    function ordenar() {
+      const inputElement = document.getElementById('inputNumbers');
+      const resultadoElement = document.getElementById('resultado');
+
+      const inputNumbers = inputElement.value.split(',').map(Number);
+
+      if (inputNumbers.length === 0) {
+        resultadoElement.textContent = 'Por favor, insira pelo menos um número.';
+        return;
+      }
+
+      const arrayOrdenado = quicksort(inputNumbers);
+      resultadoElement.textContent = 'Array Ordenado: ' + arrayOrdenado.join(', ');
+    }
+  </script>
+</body>
+</html>

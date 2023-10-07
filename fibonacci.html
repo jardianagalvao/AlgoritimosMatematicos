@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sequência de Fibonacci</title>
+</head>
+<body>
+    <h1>Sequência de Fibonacci</h1>
+    <p>Informe a quantidade de elementos da sequencia que deseja gerar:</p>
+    <input type="number" id="inputN">
+    <button onclick="gerarFibonacci()">Gerar</button>
+    <p id="resultado"></p>
+
+    <script>
+        function gerarFibonacci() {
+            let n = parseInt(document.getElementById("inputN").value);
+            let resultado = document.getElementById("resultado");
+            
+            if (n <= 1) {
+                resultado.innerHTML = "A quantidade de elementos deve ser maior que 1.";
+                return;
+            }
+
+            let fibonacci = [0, 1];
+            for (let i = 2; i < n; i++) {
+                let proximo = fibonacci[i - 1] + fibonacci[i - 2];
+                fibonacci.push(proximo);
+            }
+
+            resultado.innerHTML = "Os primeiros " + n + " termos da sequência de Fibonacci são: " + fibonacci.join(", ");
+        }
+    </script>
+</body>
+</html>

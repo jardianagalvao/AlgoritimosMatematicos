@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cálculo do MDC</title>
+</head>
+<body>
+    <h1>Cálculo do Máximo Divisor Comum (MDC)</h1>
+    
+    <form id="mdcForm">
+        <label for="numeroA">Número A:</label>
+        <input type="number" id="numeroA" required>
+        
+        <label for="numeroB">Número B:</label>
+        <input type="number" id="numeroB" required>
+        
+        <button type="button" onclick="calcularMDC()">Calcular MDC</button>
+    </form>
+
+    <p id="resultado"></p>
+
+    <script>
+        function calcularMDC() {
+            const numeroA = parseInt(document.getElementById('numeroA').value);
+            const numeroB = parseInt(document.getElementById('numeroB').value);
+
+            const mdc = calcularMDCRecursive(numeroA, numeroB);
+
+            document.getElementById('resultado').textContent = `O MDC de ${numeroA} e ${numeroB} é ${mdc}.`;
+        }
+
+        function calcularMDCRecursive(a, b) {
+            if (b === 0) {
+                return a;
+            } else {
+                return calcularMDCRecursive(b, a % b);
+            }
+        }
+    </script>
+</body>
+</html>
