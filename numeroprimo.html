@@ -11,31 +11,29 @@
     <p id="resultado"></p>
 
     <script>
-        function isPrime(number) {
-            // Seu código JavaScript para verificar se um número é primo
-            if (number <= 1) {
-                return false;  // Números menores ou iguais a 1 não são primos
-            } else if (number <= 3) {
-                return true;   // 2 e 3 são primos
-            } else if (number % 2 === 0 || number % 3 === 0) {
-                return false;  // Números divisíveis por 2 ou 3 não são primos
-            }
-
-            let i = 5;
-            while (i * i <= number) {
-                if (number % i === 0 || number % (i + 2) === 0) {
-                    return false;  // Se for divisível por algum número após 3, não é primo
-                }
-                i += 6;
-            }
-             return true;  
-        }
-
         function verificarPrimo() {
             const numero = parseInt(document.getElementById("numero").value);
             const resultadoElement = document.getElementById("resultado");
 
-            if (isPrime(numero)) {
+            let isPrimo = true;
+
+            if (numero <= 1) {
+                isPrimo = false;  // Números menores ou iguais a 1 não são primos
+            } else if (numero <= 3) {
+                isPrimo = true;   // 2 e 3 são primos
+            } else if (numero % 2 === 0 || numero % 3 === 0) {
+                isPrimo = false;  // Números divisíveis por 2 ou 3 não são primos
+            }
+
+            let i = 5;
+            while (i * i <= numero) {
+                if (numero % i === 0 || numero % (i + 2) === 0) {
+                    isPrimo = false;  // Se for divisível por algum número após 3, não é primo
+                }
+                i += 6;
+            }
+
+            if (isPrimo) {
                 resultadoElement.textContent = numero + " é um número primo.";
             } else {
                 resultadoElement.textContent = numero + " não é um número primo.";
