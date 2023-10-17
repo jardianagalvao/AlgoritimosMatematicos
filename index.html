@@ -7,6 +7,8 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f4f4f4; /* Cor de fundo cinza claro */
+            margin: 0; /* Remova a margem padrão */
         }
         h1 {
             background-color: #007BFF;
@@ -34,9 +36,9 @@
             padding: 5px;
             font-size: 16px;
             margin: 10px;
-            background-color: #007BFF; /* Cor de fundo azul para o select */
-            color: #FFF; /* Cor do texto branco */
-            border: none; /* Remove a borda padrão */
+            background-color: #007BFF;
+            color: #FFF;
+            border: none;
             border-radius: 5px;
         }
         #result {
@@ -45,6 +47,12 @@
         iframe {
             border: 1px solid #DDD;
             border-radius: 5px;
+        }
+        .footer {
+            text-align: center;
+            background-color: #007BFF;
+            color: #FFF;
+            padding: 10px;
         }
     </style>
 </head>
@@ -76,6 +84,8 @@
         <iframe id="algorithm-frame" width="100%" height="400"></iframe>
     </div>
 
+    <div class="footer">Construído por Jardiana Galvão</div>
+    
     <script>
         const select = document.getElementById('algorithm-select');
         const frame = document.getElementById('algorithm-frame');
@@ -90,3 +100,4 @@
         loadAlgorithm();
     </script>
 </body>
+</html>
