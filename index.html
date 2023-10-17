@@ -4,26 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu de Algoritmos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            background-color: #007BFF;
+            color: #FFF;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        p {
+            font-size: 16px;
+            margin: 10px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background-color: #F5F5F5;
+            border: 1px solid #DDD;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        select {
+            padding: 5px;
+            font-size: 16px;
+            margin: 10px;
+        }
+        #result {
+            margin: 10px;
+        }
+        iframe {
+            border: 1px solid #DDD;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
     <h1>Menu de Algoritmos</h1>
-    <p1>Nesta página você poderá selecionar dentre os 6 algoritmos abaixo acessando o menu de seleção: </p1>
-    <br>
+    <p>Nesta página você poderá selecionar dentre os 6 algoritmos abaixo acessando o menu de seleção:</p>
     <ul>
-        <li>Contagem: Dado um valor de N números de entrada em um conjunto de dados, 
-            <br>é realizada a contagem de quantos valores inteiros existem nesse conjunto de dados 
-            <br>entre o primeiro dado (inclusive) e N (inclusive). </li>
+        <li>Contagem: Dado um valor de N números de entrada em um conjunto de dados,
+            é realizada a contagem de quantos valores inteiros existem nesse conjunto de dados
+            entre o primeiro dado (inclusive) e N (inclusive).</li>
         <li>Fibonacci: apresenta a sequência Fibonacci a partir de um número informado pelo usuário</li>
-        <li>MDC: Calcula o áximo Divisor Comum entre dois números quaisquer.</li>
+        <li>MDC: Calcula o máximo Divisor Comum entre dois números quaisquer.</li>
         <li>Número Primo: Verifica se o número informado é primo.</li>
-        <li>Ordenação com Quicksort: Ordena um array (listagem de números) usando o método Quicksort. </li>
+        <li>Ordenação com Quicksort: Ordena um array (listagem de números) usando o método Quicksort.</li>
         <li>Somatório: Realiza a soma de um conjunto de números.</li>
-      </ul>
-      
-    <br>
+    </ul>
 
-    
-    <!-- Menu para selecionar o algoritmo -->
     <label for="algorithm-select">Selecione um algoritmo:</label>
     <select id="algorithm-select">
         <option value="contagem.html">Contagem</option>
@@ -33,29 +67,24 @@
         <option value="array.html">Ordenação com Quicksort</option>
         <option value="somatorio.html">Somatório</option>
     </select>
-    
-    <!-- Área para exibir o resultado -->
+
     <div id="result">
         <iframe id="algorithm-frame" width="100%" height="400"></iframe>
     </div>
 
-    <!-- JavaScript para carregar os algoritmos -->
     <script>
         const select = document.getElementById('algorithm-select');
         const frame = document.getElementById('algorithm-frame');
 
-        // Função para carregar o algoritmo selecionado no iframe
         function loadAlgorithm() {
             const selectedAlgorithm = select.value;
             frame.src = selectedAlgorithm;
         }
 
-        // Adicione um ouvinte de evento para carregar o algoritmo quando o usuário selecionar um novo algoritmo
         select.addEventListener('change', loadAlgorithm);
 
-        // Carregue o algoritmo inicialmente
         loadAlgorithm();
-        
     </script>
 </body>
 </html>
+
